@@ -15,6 +15,8 @@ RUN rm -rf /app/.git
 FROM python:${PYTHON_VERSION}-slim as final
 COPY --from=clone /app /app
 WORKDIR /app
+RUN apt-get update
+RUN apt-get install software-properties-common
 RUN add-apt-repository ppa:webupd8team/java
 RUN apt-get update
 RUN apt-get install gcc libc-dev bash zsh oracle-java8-installer
