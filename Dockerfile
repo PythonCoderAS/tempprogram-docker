@@ -19,4 +19,7 @@ RUN apt-get update
 RUN apt-get update
 RUN apt-get install -y gcc libc-dev bash zsh openjdk-17-jdk
 
+RUN sed -i 's/ -s / /g' *.py */*.py
+RUN sed -r -i "s/which ([a-zA-Z\d\-]+)/which \1 > \/dev\/null 2>&1/g" *.py */*.py
+
 ENTRYPOINT [ "python3", "/app/main.py" ]
