@@ -1,6 +1,8 @@
 ARG PYTHON_VERSION=3.12
 
-FROM alpine/git as clone
+FROM alpine as clone
+
+RUN apk add git
 
 ARG GIT_REPO="TempProgram"
 ARG GIT_OWNER=PythonCoderAS
