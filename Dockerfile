@@ -15,5 +15,6 @@ RUN rm -rf /app/.git
 FROM python:${PYTHON_VERSION}-slim as final
 COPY --from=clone /app /app
 WORKDIR /app
-RUN apt update && apt install gcc libc-dev bash zsh openjdk8-jdk
+RUN apt update && apt install gcc libc-dev bash zsh openjdk-8-jdk
+
 ENTRYPOINT [ "python3", "/app/main.py" ]
